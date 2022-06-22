@@ -1,12 +1,17 @@
 let express = require('express');
 let app = express();
+let htmlPath = __dirname + "/views/index.html";
+let middlewarePath = __dirname + "/public";
 
-absolutePath = __dirname + "/views/index.html"
-console.log(absolutePath);
+
+
+console.log(htmlPath);
 
 app.get("/", function(request, response) {
-    response.sendFile(absolutePath);
+    response.sendFile(htmlPath);
 });
+
+app.use("/public", express.static(middlewarePath));
 
 console.log("Hello World");
 
